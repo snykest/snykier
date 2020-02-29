@@ -19,4 +19,6 @@ jobs:
         with:
           java-version: 1.11
       - name: Run tests
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: mvn -B test
