@@ -28,4 +28,4 @@ jobs:
         with:
           command: monitor
           image: garethr/snykier
-          args: --project-name=docker.io/garethr/snykier
+          args: --project-name=docker.io/garethr/snykier:latest
