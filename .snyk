@@ -1,0 +1,9 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore:
+  'snyk:lic:maven:ch.qos.logback:logback-core:(EPL-1.0_OR_LGPL-2.0)':
+    - '*':
+        reason: Dual license is fine for this usage
+  'snyk:lic:maven:ch.qos.logback:logback-classic:(EPL-1.0_OR_LGPL-2.0)':
+    - '*':
+        reason: Dual license is fine for this usage
