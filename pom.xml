@@ -60,7 +60,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <image>
-                        <name>garethr/${project.artifactId}:latest</name>
+                        <name>garethr/${project.artifactId}</name>
                     </image>
                 </configuration>
             </plugin>
@@ -76,17 +76,10 @@
                             <goal>test</goal>
                         </goals>
                     </execution>
-                    <execution>
-                        <id>snyk-monitor</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>monitor</goal>
-                        </goals>
-                    </execution>
                 </executions>
                 <configuration>
                     <apiToken>${SNYK_TOKEN}</apiToken>
-                    <failOnSeverity>medium</failOnSeverity>
+                    <failOnSeverity>high</failOnSeverity>
                     <org></org>
                 </configuration>
             </plugin>
