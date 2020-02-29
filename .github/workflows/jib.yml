@@ -1,0 +1,32 @@
+---
+name: Docker
+on:
+  push:
+    paths-ignore:
+      - "README.md"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v1
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-jdk11-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-jdk11-
+      - name: Set up JDK 1.11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.11
+      - name: Build Docker image
+        run: mvn -B compile jib:dockerBuild
+      # Skipped for the moment until Snyk supports distroless-based images
+      # - name: Run Snyk to check image for vulnerabilities
+      #  uses: snyk/actions/docker@master
+      #  env:
+      #    SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      #  with:
+      #    command: monitor
+      #    image: garethr/snykier:jib
+      #    args: --project-name=docker.io/garethr/snykier:jib

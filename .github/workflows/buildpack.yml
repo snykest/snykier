@@ -27,5 +27,5 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           command: monitor
-          image: garethr/snykier
-          args: --project-name=docker.io/garethr/snykier:latest
+          image: garethr/snykier:cnb
+          args: --project-name=docker.io/garethr/snykier:cnb
