@@ -19,7 +19,14 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.11
-      - name: Build Docker image
+      - name: Authenticate with registry
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_BUILDKIT: "1"
+        run: |
+          docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+      - name: Build and push Docker image
         run: mvn -B compile jib:dockerBuild
       # Skipped for the moment until Snyk supports distroless-based images
       # - name: Run Snyk to check image for vulnerabilities

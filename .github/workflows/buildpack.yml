@@ -29,3 +29,10 @@ jobs:
           command: monitor
           image: garethr/snykier:cnb
           args: --project-name=docker.io/garethr/snykier:cnb
+      - name: Build and push tags to Docker Hub
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+          docker push garethr/snykier:cnb
