@@ -4,7 +4,7 @@ A simple vulnerable Java application used for demonstration purposes.
 
 ![Test](https://github.com/garethr/snykier/workflows/Test/badge.svg) ![Jib](https://github.com/garethr/snykier/workflows/Jib/badge.svg) ![Buildpack](https://github.com/garethr/snykier/workflows/Buildpack/badge.svg)
 
-## Building container images with Jib and buildpacks
+## Building container images with Jib and Cuildpacks
 
 This repository demonstrates two different ways of building container images
 
@@ -14,6 +14,12 @@ This repository demonstrates two different ways of building container images
 
 ```console
 mvn spring-boot:build-image
+```
+
+You can quickly run the resulting image on Kubernetes like so:
+
+```console
+kubectl run snykier --image=garethr/snykier:cnb --port=8080 --restart=Never
 ```
 
 ### Jib
