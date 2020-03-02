@@ -4,7 +4,7 @@ A simple vulnerable Java application used for demonstration purposes.
 
 ![Test](https://github.com/garethr/snykier/workflows/Test/badge.svg) ![Jib](https://github.com/garethr/snykier/workflows/Jib/badge.svg) ![Buildpack](https://github.com/garethr/snykier/workflows/Buildpack/badge.svg)
 
-## Building container images with Jib and Cuildpacks
+## Building container images with Jib and Buildpacks
 
 This repository demonstrates two different ways of building container images
 
