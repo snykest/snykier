@@ -10,7 +10,7 @@ This repository demonstrates two different ways of building container images
 
 ### Cloud Native Buildpacks
 
-[Buildpacks](https://buildpacks.io/) are now integraed into the latest version of Sprint Boot, and can be used to automatically build images for the application.
+[Buildpacks](https://buildpacks.io/) are now integrated into the latest version of Sprint Boot, and can be used to automatically build images for the application.
 
 ```console
 mvn spring-boot:build-image
