@@ -15,6 +15,7 @@
 	<description>Example vulnerable Spring Boot application</description>
 
 	<properties>
+        <snykPhase>none</snykPhase>
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -24,6 +25,8 @@
             <url>https://opensource.org/licenses/Apache-2.0</url>
         </license>
     </licenses>
+
+
 
 	<dependencies>
 		<dependency>
@@ -71,7 +74,7 @@
                 <executions>
                     <execution>
                         <id>snyk-test</id>
-                        <phase>test</phase>
+                        <phase>${snykPhase}</phase>
                         <goals>
                             <goal>test</goal>
                         </goals>
@@ -81,6 +84,7 @@
                     <apiToken>${SNYK_TOKEN}</apiToken>
                     <failOnSeverity>high</failOnSeverity>
                     <org></org>
+                    <skip>True</skip>
                 </configuration>
             </plugin>
             <plugin>
